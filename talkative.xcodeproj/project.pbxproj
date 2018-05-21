@@ -14,6 +14,7 @@
 		99902A1420B3857D006E600D /* message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99902A1320B3857D006E600D /* message.swift */; };
 		99902A1620B386A7006E600D /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99902A1520B386A7006E600D /* WelcomeScreenViewController.swift */; };
 		99902A1820B38830006E600D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99902A1720B38830006E600D /* Main.storyboard */; };
+		99902A1A20B38982006E600D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99902A1920B38982006E600D /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		99902A1320B3857D006E600D /* message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = message.swift; sourceTree = "<group>"; };
 		99902A1520B386A7006E600D /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
 		99902A1720B38830006E600D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		99902A1920B38982006E600D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			children = (
 				999029FA20B37341006E600D /* AppDelegate.swift */,
 				999029FC20B37341006E600D /* RegisterViewController.swift */,
+				99902A1920B38982006E600D /* LogInViewController.swift */,
 				99902A1520B386A7006E600D /* WelcomeScreenViewController.swift */,
 			);
 			name = Controller;
@@ -168,6 +171,7 @@
 				999029FD20B37341006E600D /* RegisterViewController.swift in Sources */,
 				99902A1620B386A7006E600D /* WelcomeScreenViewController.swift in Sources */,
 				999029FB20B37341006E600D /* AppDelegate.swift in Sources */,
+				99902A1A20B38982006E600D /* LogInViewController.swift in Sources */,
 				99902A1420B3857D006E600D /* message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
