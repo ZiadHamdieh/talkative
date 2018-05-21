@@ -13,6 +13,7 @@
 		99902A0220B37342006E600D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99902A0120B37342006E600D /* Assets.xcassets */; };
 		99902A0520B37342006E600D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99902A0320B37342006E600D /* LaunchScreen.storyboard */; };
 		99902A1420B3857D006E600D /* message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99902A1320B3857D006E600D /* message.swift */; };
+		99902A1620B386A7006E600D /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99902A1520B386A7006E600D /* WelcomeScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		99902A0420B37342006E600D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99902A0620B37342006E600D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99902A1320B3857D006E600D /* message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = message.swift; sourceTree = "<group>"; };
+		99902A1520B386A7006E600D /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			children = (
 				999029FA20B37341006E600D /* AppDelegate.swift */,
 				999029FC20B37341006E600D /* ViewController.swift */,
+				99902A1520B386A7006E600D /* WelcomeScreenViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				999029FD20B37341006E600D /* ViewController.swift in Sources */,
+				99902A1620B386A7006E600D /* WelcomeScreenViewController.swift in Sources */,
 				999029FB20B37341006E600D /* AppDelegate.swift in Sources */,
 				99902A1420B3857D006E600D /* message.swift in Sources */,
 			);
