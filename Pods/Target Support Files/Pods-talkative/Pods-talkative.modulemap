@@ -1,0 +1,6 @@
+framework module Pods_talkative {
+  umbrella header "Pods-talkative-umbrella.h"
+
+  export *
+  module * { export * }
+}

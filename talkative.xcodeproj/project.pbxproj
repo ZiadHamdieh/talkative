@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8754CFCD5A450250E64407DB /* Pods_talkative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBEF7BACA7B841F552FFD593 /* Pods_talkative.framework */; };
 		999029FB20B37341006E600D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999029FA20B37341006E600D /* AppDelegate.swift */; };
 		999029FD20B37341006E600D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999029FC20B37341006E600D /* RegisterViewController.swift */; };
 		99902A0220B37342006E600D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99902A0120B37342006E600D /* Assets.xcassets */; };
@@ -32,6 +33,9 @@
 		99902A1920B38982006E600D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		99902A1B20B38B40006E600D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		99902A1D20B38CD1006E600D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CBEF7BACA7B841F552FFD593 /* Pods_talkative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talkative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D79A127F9DA45110CAF0051F /* Pods-talkative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkative.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talkative/Pods-talkative.debug.xcconfig"; sourceTree = "<group>"; };
+		E7FA3BFF8C713EEC3C44852B /* Pods-talkative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkative.release.xcconfig"; path = "Pods/Target Support Files/Pods-talkative/Pods-talkative.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8754CFCD5A450250E64407DB /* Pods_talkative.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +55,8 @@
 			children = (
 				999029F920B37341006E600D /* talkative */,
 				999029F820B37341006E600D /* Products */,
+				F9E4A28424D276C10B360797 /* Pods */,
+				B5C098B9F593663550EB2204 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +110,23 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		B5C098B9F593663550EB2204 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CBEF7BACA7B841F552FFD593 /* Pods_talkative.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9E4A28424D276C10B360797 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D79A127F9DA45110CAF0051F /* Pods-talkative.debug.xcconfig */,
+				E7FA3BFF8C713EEC3C44852B /* Pods-talkative.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99902A0920B37342006E600D /* Build configuration list for PBXNativeTarget "talkative" */;
 			buildPhases = (
+				BD113E47ACD7BD77FA7653DD /* [CP] Check Pods Manifest.lock */,
 				999029F320B37341006E600D /* Sources */,
 				999029F420B37341006E600D /* Frameworks */,
 				999029F520B37341006E600D /* Resources */,
+				C4B503EF3DECF596109B27B3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -169,6 +195,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BD113E47ACD7BD77FA7653DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-talkative-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4B503EF3DECF596109B27B3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-talkative/Pods-talkative-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-talkative/Pods-talkative-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		999029F320B37341006E600D /* Sources */ = {
@@ -314,6 +389,7 @@
 		};
 		99902A0A20B37342006E600D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D79A127F9DA45110CAF0051F /* Pods-talkative.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -332,6 +408,7 @@
 		};
 		99902A0B20B37342006E600D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7FA3BFF8C713EEC3C44852B /* Pods-talkative.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
