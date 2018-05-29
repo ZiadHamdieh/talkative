@@ -30,15 +30,23 @@ class RegisterViewController: UIViewController {
         
         // user auth on firebase
         Auth.auth().createUser(withEmail: emailTextField.text!,
-                               password: passwordTextField.text!) { (user, error) in
+                               password: passwordTextField.text!) {
+                                (user, error) in
+                                
                                 if error == nil {
                                     // successful registration
                                     print("registration was successful")
+                                    
+                                    // log user into app
+                                    self.performSegue(withIdentifier: "goToChatScreen", sender: self)
+                                    
                                 }
                                 else {
                                     print(error!)
                                 }
         }
+        
+        
     }
     
     
