@@ -9,6 +9,7 @@ Messaging app that uses Google's Firebase to store & retrieve messages between u
 #### Features
 * Sign up/in/out with your email
 * Go straight into the chat room with one click
+* UI automatically scrolls down to the most recent message
 
 
 #### Upcoming Features
