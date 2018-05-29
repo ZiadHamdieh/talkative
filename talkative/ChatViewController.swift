@@ -21,7 +21,10 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        // set up this VC as the delegate and data source
+        messageTableView.delegate = self
+        messageTableView.dataSource = self
         
     }
     
@@ -48,4 +51,16 @@ class ChatViewController: UIViewController {
         }
         
     }
+}
+
+extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
 }

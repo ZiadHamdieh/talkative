@@ -32,7 +32,7 @@ class RegisterViewController: UIViewController {
         // user auth on firebase
         Auth.auth().createUser(withEmail: email.text!,
                                password: password.text!) {
-                                (user, error) in
+                                (userDetails, error) in
                                 
                                 // completion handler
                                 
