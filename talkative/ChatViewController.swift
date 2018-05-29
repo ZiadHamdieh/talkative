@@ -22,7 +22,8 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set up this VC as the delegate and data source
+        // set up appropriate delegates and dataSource
+        messageTextfield.delegate = self
         messageTableView.delegate = self
         messageTableView.dataSource = self
         
@@ -64,7 +65,7 @@ class ChatViewController: UIViewController {
     }
 }
 
-extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
+extension ChatViewController: UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -74,10 +75,21 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageCell
         let messageArray = ["first", "second", "third"]
         cell.message.text = messageArray[indexPath.row]
+        // avatar image cell shape customization below
 //        cell.imageView?.image = UIImage(named: "")
 //        cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.size.width)! / 2
 //        cell.imageView?.layer.masksToBounds = true
         return cell
         
+    }
+    
+    // runs when activity is detected inside the text field (i.e. user starts typing)
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        <#code#>
+    }
+    
+    // runs when activity inside text field stops
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        <#code#>
     }
 }
