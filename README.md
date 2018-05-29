@@ -1,5 +1,6 @@
 
-<img src="Demo/logo.png" alt="logo" height="70" align="right">
+<img src="talkative/Assets.xcassets/AppIcon-1.appiconset/Icon-1024.png" alt="Logo" height="70" align="right">
+
 
 # talkative - v1.0 
 ### An iOS Messaging App
