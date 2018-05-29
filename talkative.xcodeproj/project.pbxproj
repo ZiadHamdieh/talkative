@@ -14,7 +14,7 @@
 		999029FD20B37341006E600D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999029FC20B37341006E600D /* RegisterViewController.swift */; };
 		99902A0220B37342006E600D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99902A0120B37342006E600D /* Assets.xcassets */; };
 		99902A0520B37342006E600D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99902A0320B37342006E600D /* LaunchScreen.storyboard */; };
-		99902A1420B3857D006E600D /* message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99902A1320B3857D006E600D /* message.swift */; };
+		99902A1420B3857D006E600D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99902A1320B3857D006E600D /* Message.swift */; };
 		99902A1620B386A7006E600D /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99902A1520B386A7006E600D /* WelcomeScreenViewController.swift */; };
 		99902A1820B38830006E600D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99902A1720B38830006E600D /* Main.storyboard */; };
 		99902A1A20B38982006E600D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99902A1920B38982006E600D /* LogInViewController.swift */; };
@@ -31,7 +31,7 @@
 		99902A0120B37342006E600D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99902A0420B37342006E600D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99902A0620B37342006E600D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99902A1320B3857D006E600D /* message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = message.swift; sourceTree = "<group>"; };
+		99902A1320B3857D006E600D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		99902A1520B386A7006E600D /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
 		99902A1720B38830006E600D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		99902A1920B38982006E600D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 		99902A0F20B3852C006E600D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				99902A1320B3857D006E600D /* message.swift */,
+				99902A1320B3857D006E600D /* Message.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -273,7 +273,7 @@
 				999029FB20B37341006E600D /* AppDelegate.swift in Sources */,
 				99902A1A20B38982006E600D /* LogInViewController.swift in Sources */,
 				99902A1C20B38B40006E600D /* ChatViewController.swift in Sources */,
-				99902A1420B3857D006E600D /* message.swift in Sources */,
+				99902A1420B3857D006E600D /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

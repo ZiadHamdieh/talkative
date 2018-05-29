@@ -6,3 +6,8 @@
 //  Copyright © 2018 Ziad Hamdieh. All rights reserved.
 //
 
+class Message {
+    // specify all the attributes of a message
+    var messageContent = ""
+    var sender = ""
+}
