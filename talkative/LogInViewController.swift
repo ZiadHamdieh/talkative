@@ -9,42 +9,30 @@
 import UIKit
 import Firebase
 import ProgressHUD
+import SVProgressHUD
 
 class LogInViewController: UIViewController {
-    
 
     @IBOutlet weak var email: UITextField!
-    
-    
     @IBOutlet weak var password: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     
     @IBAction func logInPressed(_ sender: AnyObject) {
         Auth.auth().signIn(withEmail: email.text!,
                            password: password.text!) {
                             (userDetails, error) in
                             
+                            SVProgressHUD.show()
                             if error == nil {
+                                SVProgressHUD.dismiss()
                                 ProgressHUD.showSuccess("Chat on, my dude!")
                                 
                                 self.performSegue(withIdentifier: "goToChatScreen", sender: self)
                             }
                             else {
+                                SVProgressHUD.dismiss()
                                 print(error!)
-                                ProgressHUD.showError("Oops. Something went wrong.")
+                                ProgressHUD.showError("Invalid Username/Password combination.")
                             }
         }
-        
     }
-    
-    
 }

@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import ProgressHUD
+import SVProgressHUD
 
 class RegisterViewController: UIViewController {
     
@@ -34,10 +35,12 @@ class RegisterViewController: UIViewController {
                                password: password.text!) {
                                 (userDetails, error) in
                                 
-                                // completion handler
+                                SVProgressHUD.show()
                                 
+                                // completion handler
                                 if error == nil {
                                     // successful registration
+                                    SVProgressHUD.dismiss()
                                     ProgressHUD.showSuccess("registration was successful")
                                     
                                     
@@ -46,6 +49,7 @@ class RegisterViewController: UIViewController {
                                     
                                 }
                                 else {
+                                    SVProgressHUD.dismiss()
                                     print(error!)
                                     ProgressHUD.showError("Invalid email/pasword")
                                 }

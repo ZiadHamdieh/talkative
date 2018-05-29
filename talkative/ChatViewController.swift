@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 import Firebase
 import ProgressHUD
 
@@ -37,6 +38,8 @@ class ChatViewController: UIViewController {
         resizeTableView()
         receiveMessages()
         
+        messageTableView.separatorStyle = .none
+        
         // register a TableView to monitor tap gestures by user.
         // We can then use this to figure out when the user is clicking away from the message text box
         let userTappedScreen = UITapGestureRecognizer(target: self, action: #selector(tableViewWasTapped))
@@ -48,14 +51,11 @@ class ChatViewController: UIViewController {
         
     }
     
-    
     @objc func tableViewWasTapped() {
         // this method calls textFieldDidEndEditing() which in turn resizes
         // the message box text field back to default when user has finished editing the message
         messageTextfield.endEditing(true)
     }
-    
-    
     
     @IBAction func sendPressed(_ sender: AnyObject) {
         
@@ -112,7 +112,6 @@ class ChatViewController: UIViewController {
         }
     }
     
-    
     @IBAction func signOutPressed(_ sender: AnyObject) {
         do {
             try Auth.auth().signOut()
@@ -133,7 +132,6 @@ class ChatViewController: UIViewController {
     }
 }
 
-
 extension ChatViewController: UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
@@ -150,8 +148,15 @@ extension ChatViewController: UITextFieldDelegate, UITableViewDelegate, UITableV
         cell.userImageView.layer.cornerRadius = (cell.userImageView.frame.height)/2
         cell.userImageView.layer.masksToBounds = true
         
-        return cell
+        // Distinguish between messages we sent ourselves and messages sent by others
+        if Auth.auth().currentUser?.email == cell.userName.text as String? {
+            cell.messageBackground.backgroundColor = .flatSkyBlue()
+        }
+        else {
+            cell.messageBackground.backgroundColor = .flatPowderBlue()
+        }
         
+        return cell
     }
     
     // tells the delegate that editing began in the specified text field
