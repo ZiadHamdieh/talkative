@@ -40,6 +40,8 @@ class ChatViewController: UIViewController {
         // add tap gesture to the table view
         messageTableView.addGestureRecognizer(userTappedScreen)
         
+        // TODO: resize keyboard to the size appropriate for user's screen size
+        
     }
     
     
@@ -53,9 +55,35 @@ class ChatViewController: UIViewController {
     
     @IBAction func sendPressed(_ sender: AnyObject) {
         
-    
+        // first, resize chat box to original dimensions
+        messageTextfield.endEditing(true)
+        let message = messageTextfield.text
+        messageTextfield.text = ""
         
         
+        // then store the message entered by the user into Firebase db,
+        // making sure to disable user input to avoid duplicate
+        // messages in the chat
+        sendButton.isEnabled = false
+        messageTextfield.isEnabled = false
+        let msgDB = Database.database().reference().child("Messages")
+        let msgDict = ["messageSender": Auth.auth().currentUser?.email,
+                       "messageContent": message]
+        
+        // create random key for this message
+        msgDB.childByAutoId().setValue(msgDict) {
+            (error, reference) in
+            
+            if error == nil {
+                print("message was saved in the database")
+                // finally, re-enable user input
+                self.sendButton.isEnabled = true
+                self.messageTextfield.isEnabled = true
+            }
+            else  {
+                print(error!)
+            }
+        }
     }
     
     
@@ -63,7 +91,7 @@ class ChatViewController: UIViewController {
         
         do {
             try Auth.auth().signOut()
-            
+            // pop all views from the stack and return to root view (i.e. the welcome screen)
             navigationController?.popToRootViewController(animated: true)
         }
         catch {
@@ -72,7 +100,8 @@ class ChatViewController: UIViewController {
         }
     }
     
-    // resize TableView if user sends a long message
+    // resize TableView if user's entered message is too long to fit
+    // in the chat box's current dimensions
     func resizeTableView() {
         messageTableView.estimatedRowHeight = 100.0
         messageTableView.rowHeight = UITableViewAutomaticDimension
@@ -86,6 +115,7 @@ extension ChatViewController: UITextFieldDelegate, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        //TODO: edit user avatar image shape
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageCell
         let messageArray = ["first", "second", "third"]
         cell.message.text = messageArray[indexPath.row]
@@ -115,7 +145,7 @@ extension ChatViewController: UITextFieldDelegate, UITableViewDelegate, UITableV
     
     // tells the delegate that editing stopped in the specified text field
     // NOTE: This method does not get called by default, so we use tap gesture methods
-    // to trigger itn ( see tableViewWasTapped() )
+    // to trigger it ( see tableViewWasTapped() )
     func textFieldDidEndEditing(_ textField: UITextField) {
         view.layoutIfNeeded()
         
