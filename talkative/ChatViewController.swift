@@ -109,6 +109,10 @@ class ChatViewController: UIViewController {
             self.messages.append(retrievedMessage)
             self.resizeTableView()
             self.messageTableView.reloadData()
+            
+            // finally, scroll down to the most recent message
+            let indexPath = IndexPath(row: self.messages.count - 1, section: 0);
+            self.messageTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
         }
     }
     
