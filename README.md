@@ -13,8 +13,10 @@ Messaging app that uses Google's Firebase to store & retrieve messages between u
 
 
 #### Upcoming Features
-* Sign up/in with your Google account
 * UI improvements
+* Sign up/in with your Google account
+* Choose a profile picture from photos on the device
+
 
 
 #### Demos
