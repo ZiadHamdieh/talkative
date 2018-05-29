@@ -10,4 +10,9 @@ class Message {
     // specify all the attributes of a message
     var messageContent = ""
     var sender = ""
+    
+    init(msg: String, user: String) {
+        messageContent = msg
+        sender = user
+    }
 }

@@ -17,6 +17,9 @@ class ChatViewController: UIViewController {
     @IBOutlet var messageTextfield: UITextField!
     @IBOutlet var messageTableView: UITableView!
     
+    // array that holds message objects sent by users
+    var messages : [Message] = [Message]()
+    
     
     
     override func viewDidLoad() {
@@ -32,6 +35,7 @@ class ChatViewController: UIViewController {
         
         // resize the tableview based on the size of the messages upon loading
         resizeTableView()
+        receiveMessages()
         
         // register a TableView to monitor tap gestures by user.
         // We can then use this to figure out when the user is clicking away from the message text box
@@ -86,9 +90,30 @@ class ChatViewController: UIViewController {
         }
     }
     
+    func receiveMessages() {
+        // point to the same database where sent messages are stored by sendPressed()
+        let msgDB = Database.database().reference().child("Messages")
+        
+        // observe for eventType: childAdded
+        msgDB.observe(.childAdded) {
+            (snapshot) in
+            // grab data within the snapshot and format into a Message object
+            
+            // Note: snapshot.value must be cast to a dictionary in order to use it
+            let snapshotResult = snapshot.value as! Dictionary<String, String>
+            let content = snapshotResult["messageContent"]!
+            let sender = snapshotResult["messageSender"]!
+            
+            // instantiate a new Message object and append it to messages[]
+            let retrievedMessage = Message(msg: content, user: sender)
+            self.messages.append(retrievedMessage)
+            self.resizeTableView()
+            self.messageTableView.reloadData()
+        }
+    }
+    
     
     @IBAction func signOutPressed(_ sender: AnyObject) {
-        
         do {
             try Auth.auth().signOut()
             // pop all views from the stack and return to root view (i.e. the welcome screen)
@@ -108,21 +133,23 @@ class ChatViewController: UIViewController {
     }
 }
 
+
 extension ChatViewController: UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //TODO: edit user avatar image shape
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageCell
-        let messageArray = ["first", "second", "third"]
-        cell.message.text = messageArray[indexPath.row]
+        cell.message.text = messages[indexPath.row].messageContent
+        cell.userName.text = messages[indexPath.row].sender
         // avatar image cell shape customization below
-//        cell.imageView?.image = UIImage(named: "")
-//        cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.size.width)! / 2
-//        cell.imageView?.layer.masksToBounds = true
+        cell.userImageView.image = UIImage(named: "egg")
+        cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.size.width)! / 2
+        cell.imageView?.layer.masksToBounds = true
+        
         return cell
         
     }
