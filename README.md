@@ -1,14 +1,21 @@
 
-<img src="talkative/Assets.xcassets/AppIcon-1.appiconset/Icon-1024.png" alt="Logo" height="70" align="right">
+<img src="talkative/Assets.xcassets/AppIcon-1.appiconset/Icon-1024.png" alt="Logo" height="100" align="right">
 
 
 # talkative - v1.0 
 ### An iOS Messaging App
 
 #### Features
+* Sign up/in/out with your email
+* Go straight into the chat room with one click
 
 
-#### Screenshots
+#### Upcoming Features
+* Sign up/in with your Google account
+* UI improvements
+
+
+#### Demos
 ![](https://media.giphy.com/media/9D3vAfaYtXVl7BLSdF/giphy.gif)
 
 ![](https://media.giphy.com/media/28mfcZop9Mtnel4sJE/giphy.gif)
