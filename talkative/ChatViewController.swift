@@ -18,10 +18,12 @@ class ChatViewController: UIViewController {
     @IBOutlet var messageTextfield: UITextField!
     @IBOutlet var messageTableView: UITableView!
     
-    // array that holds message objects sent by users
     var messages : [Message] = [Message]()
+    var keyboardIsPresent = false
     
     
+    // MARK: - App Lifecycle
+    /**********************************************************************/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,40 +32,64 @@ class ChatViewController: UIViewController {
         messageTextfield.delegate = self
         messageTableView.delegate = self
         messageTableView.dataSource = self
-        
-        // register cell's .xib
         messageTableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "messageCell")
-        
-        // resize the tableview based on the size of the messages upon loading
-        resizeTableView()
-        receiveMessages()
-        
-        messageTableView.separatorStyle = .none
         
         // register a TableView to monitor tap gestures by user.
         // We can then use this to figure out when the user is clicking away from the message text box
         let userTappedScreen = UITapGestureRecognizer(target: self, action: #selector(tableViewWasTapped))
-        
         // add tap gesture to the table view
         messageTableView.addGestureRecognizer(userTappedScreen)
         
-        // TODO: resize keyboard to the size appropriate for user's screen size
+        // resize the tableview based on the size of the messages upon loading
+        resizeTableView()
+        
+        receiveMessages()
+        
+        messageTableView.separatorStyle = .none
+        
+        if (messageTextfield.text?.isEmpty)! {
+            sendButton.isEnabled = false
+        }
+        
+        
+//        // TODO: resize keyboard to the size appropriate for user's screen size
+//        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.showKeyboard),
+//                                               name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.HideKeyboard),
+//                                               name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
     }
     
-    @objc func tableViewWasTapped() {
-        // this method calls textFieldDidEndEditing() which in turn resizes
-        // the message box text field back to default when user has finished editing the message
-        messageTextfield.endEditing(true)
-    }
+    
+    // MARK: - Show/Hide keyboard
+    /**********************************************************************/
+    
+//    @objc func showKeyboard(notification: NSNotification) {
+//            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//                if self.view.frame.origin.y == 0 && !keyboardIsPresent {
+//                    self.view.frame.origin.y -= keyboardSize.height
+//                }
+//            }
+//    }
+//
+//
+//    @objc func HideKeyboard(notification: NSNotification) {
+//            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//                if self.view.frame.origin.y != 0 && keyboardIsPresent {
+//                    self.view.frame.origin.y += keyboardSize.height
+//                    tableViewWasTapped()
+//                }
+//            }
+//    }
+    
+    
+    // MARK: - Send/Receive messages
+    /**********************************************************************/
     
     @IBAction func sendPressed(_ sender: AnyObject) {
         
         // first, resize chat box to original dimensions
         messageTextfield.endEditing(true)
-        let message = messageTextfield.text
-        messageTextfield.text = ""
-        
         
         // then store the message entered by the user into Firebase db,
         // making sure to disable user input to avoid duplicate
@@ -72,15 +98,15 @@ class ChatViewController: UIViewController {
         messageTextfield.isEnabled = false
         let msgDB = Database.database().reference().child("Messages")
         let msgDict = ["messageSender": Auth.auth().currentUser?.email,
-                       "messageContent": message]
+                       "messageContent": messageTextfield.text]
         
         // create random key for this message
         msgDB.childByAutoId().setValue(msgDict) {
             (error, reference) in
             
             if error == nil {
-                print("message was saved in the database")
                 // finally, re-enable user input
+                self.messageTextfield.text = ""
                 self.sendButton.isEnabled = true
                 self.messageTextfield.isEnabled = true
             }
@@ -116,6 +142,9 @@ class ChatViewController: UIViewController {
         }
     }
     
+    // MARK: - Sign Out
+    /**********************************************************************/
+    
     @IBAction func signOutPressed(_ sender: AnyObject) {
         do {
             try Auth.auth().signOut()
@@ -127,16 +156,13 @@ class ChatViewController: UIViewController {
             ProgressHUD.showError("Check Internet Connection")
         }
     }
-    
-    // resize TableView if user's entered message is too long to fit
-    // in the chat box's current dimensions
-    func resizeTableView() {
-        messageTableView.estimatedRowHeight = 100.0
-        messageTableView.rowHeight = UITableViewAutomaticDimension
-    }
 }
 
+// MARK: - TableView & TextField delegate methods
+/**********************************************************************/
+
 extension ChatViewController: UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
@@ -144,58 +170,75 @@ extension ChatViewController: UITextFieldDelegate, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageCell
+        
         cell.message.text = messages[indexPath.row].messageContent
         cell.userName.text = messages[indexPath.row].sender
         cell.backgroundColor = UIColor(rgb: 0xd6f5fc)
         
+        // avatar picture customization
         let image = UIImage(named: "defaultAvatar")
         cell.userImageView.image = image
         cell.userImageView.layer.cornerRadius = (cell.userImageView.frame.height)/2
         cell.userImageView.layer.masksToBounds = true
         
-        // Distinguish between messages we sent ourselves and messages sent by others
         if Auth.auth().currentUser?.email == cell.userName.text as String? {
+            
+            // set background to sky blue if message is from logged in user
             cell.messageBackground.backgroundColor = .flatSkyBlue()
         }
         else {
+            
+            // set background to powder blue if message is from another user
             cell.messageBackground.backgroundColor = .flatPowderBlue()
         }
         
         return cell
     }
     
-    // tells the delegate that editing began in the specified text field
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        let userKeyboardHeight = 250
-        let textBoxHeight = 50
-        heightConstraint.constant = CGFloat(textBoxHeight + userKeyboardHeight)
-        
-        // tell AutoLayout to redraw screen elements after update
-        view.layoutIfNeeded()
-        
-        // animate keyboard popup when user begins editing text field
-        UIView.animate(withDuration: 0.3) {
-           self.heightConstraint.constant = CGFloat(textBoxHeight + userKeyboardHeight)
-           self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.5) {
+            self.heightConstraint.constant = 308
+            self.view.layoutIfNeeded()
         }
     }
     
-    // tells the delegate that editing stopped in the specified text field
-    // NOTE: This method does not get called by default, so we use tap gesture methods
-    // to trigger it ( see tableViewWasTapped() )
     func textFieldDidEndEditing(_ textField: UITextField) {
-        view.layoutIfNeeded()
-        
         UIView.animate(withDuration: 0.3) {
             self.heightConstraint.constant = 50
             self.view.layoutIfNeeded()
         }
         
     }
+    
+    // disable send button if messageTextfield is empty
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let text = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        
+        if !text.isEmpty{
+            sendButton.isEnabled = true
+        } else {
+            sendButton.isEnabled = false
+        }
+        return true
+    }
+    
+    @objc func tableViewWasTapped() {
+        messageTextfield.endEditing(true)
+    }
+    
+    // resize TableView if user's entered message is too long to fit
+    // in the chat box's current dimensions
+    func resizeTableView() {
+        messageTableView.estimatedRowHeight = 130.0
+        messageTableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
 }
 
 // Extra extension to UIColor to use hexadecimal values in setting background colors
 extension UIColor {
+    
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
@@ -211,4 +254,5 @@ extension UIColor {
             blue: rgb & 0xFF
         )
     }
+    
 }
