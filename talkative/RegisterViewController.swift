@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import ProgressHUD
 
 class RegisterViewController: UIViewController {
     
@@ -35,7 +36,8 @@ class RegisterViewController: UIViewController {
                                 
                                 if error == nil {
                                     // successful registration
-                                    print("registration was successful")
+                                    ProgressHUD.showSuccess("registration was successful")
+                                    
                                     
                                     // log user into app
                                     self.performSegue(withIdentifier: "goToChatScreen", sender: self)
@@ -43,6 +45,7 @@ class RegisterViewController: UIViewController {
                                 }
                                 else {
                                     print(error!)
+                                    ProgressHUD.showError("Invalid email/pasword")
                                 }
         }
         
