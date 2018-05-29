@@ -4,6 +4,7 @@
 
 # talkative - v1.0 
 ### An iOS Messaging App
+Messaging app that uses Google's Firebase to store & retrieve messages between users.
 
 #### Features
 * Sign up/in/out with your email
