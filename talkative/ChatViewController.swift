@@ -29,6 +29,9 @@ class ChatViewController: UIViewController {
         // register cell's .xib
         messageTableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "messageCell")
         
+        // resize the tableview based on the size of the messages upon loading
+        resizeTableView()
+        
     }
     
     
@@ -52,7 +55,12 @@ class ChatViewController: UIViewController {
             print("Error signing out")
             ProgressHUD.showError("Check Internet Connection")
         }
-        
+    }
+    
+    // resize TableView if user sends a long message
+    func resizeTableView() {
+        messageTableView.estimatedRowHeight = 100.0
+        messageTableView.rowHeight = UITableViewAutomaticDimension
     }
 }
 
@@ -72,6 +80,4 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
         
     }
-    
-    
 }
