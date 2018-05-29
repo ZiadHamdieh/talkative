@@ -141,14 +141,14 @@ extension ChatViewController: UITextFieldDelegate, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //TODO: edit user avatar image shape
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageCell
         cell.message.text = messages[indexPath.row].messageContent
         cell.userName.text = messages[indexPath.row].sender
-        // avatar image cell shape customization below
-        cell.userImageView.image = UIImage(named: "egg")
-        cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.size.width)! / 2
-        cell.imageView?.layer.masksToBounds = true
+        
+        let image = UIImage(named: "defaultAvatar")
+        cell.userImageView.image = image
+        cell.userImageView.layer.cornerRadius = (cell.userImageView.frame.height)/2
+        cell.userImageView.layer.masksToBounds = true
         
         return cell
         
