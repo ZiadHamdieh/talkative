@@ -109,6 +109,7 @@
                                             <constraint firstAttribute="height" constant="30" id="t4i-pt-0WT"/>
                                         </constraints>
                                         <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67C-Ey-AV3">
@@ -316,7 +317,7 @@
                     <navigationItem key="navigationItem" title="talkative" id="OGj-fw-WBv">
                         <barButtonItem key="rightBarButtonItem" title="Sign Out" id="mz9-8w-6zi">
                             <connections>
-                                <action selector="logOutPressed:" destination="vXZ-lx-hvc" id="AiZ-zI-Rgo"/>
+                                <action selector="signOutPressed:" destination="vXZ-lx-hvc" id="S3E-eY-VFq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

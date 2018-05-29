@@ -34,12 +34,14 @@ class RegisterViewController: UIViewController {
                                password: passwordTextField.text!) {
                                 (user, error) in
                                 
+                                // completion handler
+                                
                                 if error == nil {
                                     // successful registration
                                     ProgressHUD.showSuccess("registration was successful")
                                     
                                     
-                                    // log user into app
+                                    // log user into app and go to chat screen
                                     self.performSegue(withIdentifier: "goToChatScreen", sender: self)
                                     
                                 }

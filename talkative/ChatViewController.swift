@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Firebase
+import ProgressHUD
 
 class ChatViewController: UIViewController {
     
@@ -32,15 +33,20 @@ class ChatViewController: UIViewController {
         
         
     }
-
     
     
-    @IBAction func logOutPressed(_ sender: AnyObject) {
+    @IBAction func signOutPressed(_ sender: AnyObject) {
         
+        do {
+            try Auth.auth().signOut()
+            
+            navigationController?.popToRootViewController(animated: true)
+        }
+        catch {
+            print("Error signing out")
+            ProgressHUD.showError("Check Internet Connection")
+        }
         
         
     }
-    
-    
-    
 }
