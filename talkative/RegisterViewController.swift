@@ -2,16 +2,18 @@
 //  ViewController.swift
 //  talkative
 //
-//  Created by Ziad Hamdieh on 2018-05-21.
+//  Created by Ziad Hamdieh on 2018-05-11.
 //  Copyright © 2018 Ziad Hamdieh. All rights reserved.
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
     
-    @IBOutlet var emailTextfield: UITextField!
-    @IBOutlet var passwordTextfield: UITextField!
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     
     override func viewDidLoad() {
@@ -26,9 +28,17 @@ class RegisterViewController: UIViewController {
     
     @IBAction func registerPressed(_ sender: AnyObject) {
         
-        // setup user on firebase
-    
-        
+        // user auth on firebase
+        Auth.auth().createUser(withEmail: emailTextField.text!,
+                               password: passwordTextField.text!) { (user, error) in
+                                if error == nil {
+                                    // successful registration
+                                    print("registration was successful")
+                                }
+                                else {
+                                    print(error!)
+                                }
+        }
     }
     
     

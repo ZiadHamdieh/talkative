@@ -89,7 +89,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background1" translatesAutoresizingMaskIntoConstraints="NO" id="PfL-jt-q3u">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PfL-jt-q3u">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffX-Mv-79o">
@@ -156,8 +156,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="IBw-Pb-pcT"/>
                     <connections>
-                        <outlet property="emailTextfield" destination="M1R-HS-xgc" id="EZN-co-Khq"/>
-                        <outlet property="passwordTextfield" destination="SYb-Xx-USU" id="pWb-Ds-G8q"/>
+                        <outlet property="emailTextField" destination="M1R-HS-xgc" id="0Cf-Xv-Tl6"/>
+                        <outlet property="passwordTextField" destination="SYb-Xx-USU" id="lJz-dF-6Yq"/>
                         <segue destination="vXZ-lx-hvc" kind="push" identifier="goToChatScreen" id="mOy-cb-hAN"/>
                     </connections>
                 </viewController>
@@ -173,11 +173,11 @@
                         <viewControllerLayoutGuide type="top" id="fxq-LK-1OE"/>
                         <viewControllerLayoutGuide type="bottom" id="G8E-r3-c8B"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="b1r-c3-eoq">
+                    <view key="view" contentMode="scaleAspectFit" id="b1r-c3-eoq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background1" translatesAutoresizingMaskIntoConstraints="NO" id="ns8-Hj-HXi">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ns8-Hj-HXi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cr0-Ts-jsg">
@@ -354,10 +354,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="1280" height="949"/>
-        <image name="background1" width="1800" height="1192"/>
+        <image name="background" width="640" height="426"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mOy-cb-hAN"/>
+        <segue reference="rRW-Qd-PQi"/>
     </inferredMetricsTieBreakers>
 </document>

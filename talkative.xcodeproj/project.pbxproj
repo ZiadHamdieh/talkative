@@ -97,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				99902A1320B3857D006E600D /* message.swift */,
-				99902A1720B38830006E600D /* Main.storyboard */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -106,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				99902A0320B37342006E600D /* LaunchScreen.storyboard */,
+				99902A1720B38830006E600D /* Main.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
