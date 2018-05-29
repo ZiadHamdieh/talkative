@@ -33,6 +33,20 @@ class ChatViewController: UIViewController {
         // resize the tableview based on the size of the messages upon loading
         resizeTableView()
         
+        // register a TableView to monitor tap gestures by user.
+        // We can then use this to figure out when the user is clicking away from the message text box
+        let userTappedScreen = UITapGestureRecognizer(target: self, action: #selector(tableViewWasTapped))
+        
+        // add tap gesture to the table view
+        messageTableView.addGestureRecognizer(userTappedScreen)
+        
+    }
+    
+    
+    @objc func tableViewWasTapped() {
+        // this method calls textFieldDidEndEditing() which in turn resizes
+        // the message box text field back to default when user has finished editing the message
+        messageTextfield.endEditing(true)
     }
     
     
@@ -83,13 +97,32 @@ extension ChatViewController: UITextFieldDelegate, UITableViewDelegate, UITableV
         
     }
     
-    // runs when activity is detected inside the text field (i.e. user starts typing)
+    // tells the delegate that editing began in the specified text field
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        <#code#>
+        let userKeyboardHeight = 250
+        let textBoxHeight = 50
+        heightConstraint.constant = CGFloat(textBoxHeight + userKeyboardHeight)
+        
+        // tell AutoLayout to redraw screen elements after update
+        view.layoutIfNeeded()
+        
+        // animate keyboard popup when user begins editing text field
+        UIView.animate(withDuration: 0.3) {
+           self.heightConstraint.constant = CGFloat(textBoxHeight + userKeyboardHeight)
+           self.view.layoutIfNeeded()
+        }
     }
     
-    // runs when activity inside text field stops
+    // tells the delegate that editing stopped in the specified text field
+    // NOTE: This method does not get called by default, so we use tap gesture methods
+    // to trigger itn ( see tableViewWasTapped() )
     func textFieldDidEndEditing(_ textField: UITextField) {
-        <#code#>
+        view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.3) {
+            self.heightConstraint.constant = 50
+            self.view.layoutIfNeeded()
+        }
+        
     }
 }
