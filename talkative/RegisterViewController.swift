@@ -13,8 +13,8 @@ import ProgressHUD
 class RegisterViewController: UIViewController {
     
     
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
     
     
     override func viewDidLoad() {
@@ -30,8 +30,8 @@ class RegisterViewController: UIViewController {
     @IBAction func registerPressed(_ sender: AnyObject) {
         
         // user auth on firebase
-        Auth.auth().createUser(withEmail: emailTextField.text!,
-                               password: passwordTextField.text!) {
+        Auth.auth().createUser(withEmail: email.text!,
+                               password: password.text!) {
                                 (user, error) in
                                 
                                 // completion handler

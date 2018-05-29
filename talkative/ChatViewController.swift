@@ -47,6 +47,5 @@ class ChatViewController: UIViewController {
             ProgressHUD.showError("Check Internet Connection")
         }
         
-        
     }
 }
