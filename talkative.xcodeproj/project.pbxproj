@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8754CFCD5A450250E64407DB /* Pods_talkative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBEF7BACA7B841F552FFD593 /* Pods_talkative.framework */; };
+		9957A92720BD0E8500D1C0AC /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9957A92620BD0E8500D1C0AC /* MessageCell.xib */; };
+		9957A92920BD1F0700D1C0AC /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9957A92820BD1F0700D1C0AC /* MessageCell.swift */; };
 		999029FB20B37341006E600D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999029FA20B37341006E600D /* AppDelegate.swift */; };
 		999029FD20B37341006E600D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999029FC20B37341006E600D /* RegisterViewController.swift */; };
 		99902A0220B37342006E600D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99902A0120B37342006E600D /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9957A92620BD0E8500D1C0AC /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		9957A92820BD1F0700D1C0AC /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		999029F720B37341006E600D /* talkative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talkative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		999029FA20B37341006E600D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		999029FC20B37341006E600D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +54,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9957A92520BD0E6100D1C0AC /* message cell */ = {
+			isa = PBXGroup;
+			children = (
+				9957A92620BD0E8500D1C0AC /* MessageCell.xib */,
+				9957A92820BD1F0700D1C0AC /* MessageCell.swift */,
+			);
+			name = "message cell";
+			sourceTree = "<group>";
+		};
 		999029EE20B37341006E600D = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +117,7 @@
 		99902A1120B3853C006E600D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9957A92520BD0E6100D1C0AC /* message cell */,
 				99902A0320B37342006E600D /* LaunchScreen.storyboard */,
 				99902A1720B38830006E600D /* Main.storyboard */,
 			);
@@ -187,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9957A92720BD0E8500D1C0AC /* MessageCell.xib in Resources */,
 				99902A1820B38830006E600D /* Main.storyboard in Resources */,
 				99902A1E20B38CD2006E600D /* GoogleService-Info.plist in Resources */,
 				99902A0520B37342006E600D /* LaunchScreen.storyboard in Resources */,
@@ -253,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				999029FD20B37341006E600D /* RegisterViewController.swift in Sources */,
+				9957A92920BD1F0700D1C0AC /* MessageCell.swift in Sources */,
 				99902A1620B386A7006E600D /* WelcomeScreenViewController.swift in Sources */,
 				999029FB20B37341006E600D /* AppDelegate.swift in Sources */,
 				99902A1A20B38982006E600D /* LogInViewController.swift in Sources */,

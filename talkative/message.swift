@@ -6,8 +6,3 @@
 //  Copyright © 2018 Ziad Hamdieh. All rights reserved.
 //
 
-import Foundation
-
-class Message {
-    
-}

@@ -158,9 +158,7 @@
                     <navigationItem key="navigationItem" title="Sign Up" id="IBw-Pb-pcT"/>
                     <connections>
                         <outlet property="email" destination="M1R-HS-xgc" id="KN1-fl-OwL"/>
-                        <outlet property="emailTextField" destination="M1R-HS-xgc" id="0Cf-Xv-Tl6"/>
                         <outlet property="password" destination="SYb-Xx-USU" id="xar-VM-gP6"/>
-                        <outlet property="passwordTextField" destination="SYb-Xx-USU" id="lJz-dF-6Yq"/>
                         <segue destination="vXZ-lx-hvc" kind="push" identifier="goToChatScreen" id="mOy-cb-hAN"/>
                     </connections>
                 </viewController>
