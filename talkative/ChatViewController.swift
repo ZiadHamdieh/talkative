@@ -51,30 +51,7 @@ class ChatViewController: UIViewController {
             sendButton.isEnabled = false
         } 
     }
-    
-    
-    // MARK: - Show/Hide keyboard
-    /**********************************************************************/
-    
-//    @objc func showKeyboard(notification: NSNotification) {
-//            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-//                if self.view.frame.origin.y == 0 && !keyboardIsPresent {
-//                    self.view.frame.origin.y -= keyboardSize.height
-//                }
-//            }
-//    }
-//
-//
-//    @objc func HideKeyboard(notification: NSNotification) {
-//            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-//                if self.view.frame.origin.y != 0 && keyboardIsPresent {
-//                    self.view.frame.origin.y += keyboardSize.height
-//                    tableViewWasTapped()
-//                }
-//            }
-//    }
-    
-    
+       
     // MARK: - Send/Receive messages
     /**********************************************************************/
     
