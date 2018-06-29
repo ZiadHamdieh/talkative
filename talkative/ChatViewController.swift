@@ -49,15 +49,7 @@ class ChatViewController: UIViewController {
         
         if (messageTextfield.text?.isEmpty)! {
             sendButton.isEnabled = false
-        }
-        
-        
-//        // TODO: resize keyboard to the size appropriate for user's screen size
-//        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.showKeyboard),
-//                                               name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.HideKeyboard),
-//                                               name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
+        } 
     }
     
     
