@@ -12,14 +12,7 @@ import UIKit
 class WelcomeScreenViewController : UIViewController {
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
+        super.viewDidLoad()   
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     
 }
