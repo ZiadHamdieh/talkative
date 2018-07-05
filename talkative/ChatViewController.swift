@@ -22,13 +22,12 @@ class ChatViewController: UIViewController {
     var keyboardIsPresent = false
     
     
-    // MARK: - App Lifecycle
+    // MARK: - View Lifecycle
     /**********************************************************************/
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set up appropriate delegates and dataSource
         messageTextfield.delegate = self
         messageTableView.delegate = self
         messageTableView.dataSource = self
@@ -37,7 +36,6 @@ class ChatViewController: UIViewController {
         // register a TableView to monitor tap gestures by user.
         // We can then use this to figure out when the user is clicking away from the message text box
         let userTappedScreen = UITapGestureRecognizer(target: self, action: #selector(tableViewWasTapped))
-        // add tap gesture to the table view
         messageTableView.addGestureRecognizer(userTappedScreen)
         
         // resize the tableview based on the size of the messages upon loading
