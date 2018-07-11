@@ -33,7 +33,3 @@ Messaging app that uses Google's Firebase to store & retrieve messages between u
 #### Instructions
 
 To download this app onto your device, simply download this repository to your local machine, open it with XCode and run it on your device.
-
-
-#### Credits
-Special thanks to LondonAppBrewery's Angela Yu for providing some of the image assets and knowledge used in this project!
