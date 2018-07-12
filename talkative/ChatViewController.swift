@@ -22,13 +22,12 @@ class ChatViewController: UIViewController {
     var keyboardIsPresent = false
     
     
-    // MARK: - App Lifecycle
+    // MARK: - View Lifecycle
     /**********************************************************************/
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set up appropriate delegates and dataSource
         messageTextfield.delegate = self
         messageTableView.delegate = self
         messageTableView.dataSource = self
@@ -37,7 +36,6 @@ class ChatViewController: UIViewController {
         // register a TableView to monitor tap gestures by user.
         // We can then use this to figure out when the user is clicking away from the message text box
         let userTappedScreen = UITapGestureRecognizer(target: self, action: #selector(tableViewWasTapped))
-        // add tap gesture to the table view
         messageTableView.addGestureRecognizer(userTappedScreen)
         
         // resize the tableview based on the size of the messages upon loading
@@ -49,40 +47,9 @@ class ChatViewController: UIViewController {
         
         if (messageTextfield.text?.isEmpty)! {
             sendButton.isEnabled = false
-        }
-        
-        
-//        // TODO: resize keyboard to the size appropriate for user's screen size
-//        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.showKeyboard),
-//                                               name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.HideKeyboard),
-//                                               name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
+        } 
     }
-    
-    
-    // MARK: - Show/Hide keyboard
-    /**********************************************************************/
-    
-//    @objc func showKeyboard(notification: NSNotification) {
-//            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-//                if self.view.frame.origin.y == 0 && !keyboardIsPresent {
-//                    self.view.frame.origin.y -= keyboardSize.height
-//                }
-//            }
-//    }
-//
-//
-//    @objc func HideKeyboard(notification: NSNotification) {
-//            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-//                if self.view.frame.origin.y != 0 && keyboardIsPresent {
-//                    self.view.frame.origin.y += keyboardSize.height
-//                    tableViewWasTapped()
-//                }
-//            }
-//    }
-    
-    
+       
     // MARK: - Send/Receive messages
     /**********************************************************************/
     

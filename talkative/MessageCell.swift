@@ -10,7 +10,6 @@ import UIKit
 
 final class MessageCell: UITableViewCell {
     
-    
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var userName: UILabel!
@@ -18,8 +17,7 @@ final class MessageCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-    
+    }  
     
 }
 
