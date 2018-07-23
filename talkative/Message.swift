@@ -7,7 +7,7 @@
 //
 
 final class Message {
-    // specify all the attributes of a message
+    
     var messageContent = ""
     var sender = ""
     
