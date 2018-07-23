@@ -13,6 +13,8 @@ import ProgressHUD
 
 class ChatViewController: UIViewController {
     
+    // MARK: - IBOutlets
+    /*************************************************************************************/
     @IBOutlet var heightConstraint: NSLayoutConstraint!
     @IBOutlet var sendButton: UIButton!
     @IBOutlet var messageTextfield: UITextField!
