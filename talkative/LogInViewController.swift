@@ -12,9 +12,15 @@ import ProgressHUD
 import SVProgressHUD
 
 class LogInViewController: UIViewController {
-
+    
+    //MARK: - IBOutlets
+    /*************************************************************************************/
+   
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    
+    //MARK: - IBActions
+    /*************************************************************************************/
     
     @IBAction func logInPressed(_ sender: AnyObject) {
         Auth.auth().signIn(withEmail: email.text!,
