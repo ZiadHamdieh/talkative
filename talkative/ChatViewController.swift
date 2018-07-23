@@ -13,17 +13,16 @@ import ProgressHUD
 
 class ChatViewController: UIViewController {
     
+    var messages: [Message] = [Message]()
+    var keyboardIsPresent = false
+    
     // MARK: - IBOutlets
     /*************************************************************************************/
     @IBOutlet var heightConstraint: NSLayoutConstraint!
     @IBOutlet var sendButton: UIButton!
     @IBOutlet var messageTextfield: UITextField!
     @IBOutlet var messageTableView: UITableView!
-    
-    var messages : [Message] = [Message]()
-    var keyboardIsPresent = false
-    
-    
+   
     // MARK: - View Lifecycle
     /**********************************************************************/
     
