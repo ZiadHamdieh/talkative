@@ -1,7 +1,7 @@
 
 <img src="talkative/Assets.xcassets/AppIcon-1.appiconset/Icon-1024.png" alt="Logo" height="100" align="right">
 
-# Talkative - v1.0 
+# talkative - v1.0 
 ### An iOS Messaging App
 Messaging app that uses Google's Firebase to store & retrieve messages between users.
 
