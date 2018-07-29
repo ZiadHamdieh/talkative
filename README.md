@@ -19,7 +19,6 @@ Messaging app that uses Google's Firebase to store & retrieve messages between u
 * Choose a profile picture from photos on the device
 
 
-
 #### Demos
 ![](https://media.giphy.com/media/9D3vAfaYtXVl7BLSdF/giphy.gif)
 
